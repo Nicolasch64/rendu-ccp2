@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS utilisateurs (
     nom TEXT NOT NULL,
     email TEXT UNIQUE NOT NULL,
     role TEXT CHECK(role IN ('bénévole', 'association')) NOT NULL,
+    motdepasse TEXT,
     cree_le TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -34,16 +35,16 @@ CREATE TABLE IF NOT EXISTS candidatures (
 );
 
 
-INSERT INTO utilisateurs (nom, email, role) 
+INSERT INTO utilisateurs (nom, email, role,motdepasse) 
 VALUES 
-    ('wayne', 'john.wayne@myspace.com', 'bénévole'),
-    ('kleg', 'johnykleg@gmail.com', 'bénévole'),
-    ('lancaster', 'burt.lancaster@myspace.com', 'bénévole');
+    ('wayne', 'john.wayne@myspace.com', 'bénévole','12335'),
+    ('kleg', 'johnykleg@gmail.com', 'bénévole','45757'),
+    ('lancaster', 'burt.lancaster@myspace.com', 'bénévole','7878');
 
 
-INSERT INTO utilisateurs (nom, email, role) 
+INSERT INTO utilisateurs (nom, email, role,motdepasse) 
 VALUES 
-    ('Association des cowboys', 'contact@associationcowboy.com', 'association');
+    ('Association des cowboys', 'contact@associationcowboy.com', 'association','5787');
 
 INSERT INTO missions (titre, description, date_mission, association_id)
 VALUES 
