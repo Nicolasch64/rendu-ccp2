@@ -47,3 +47,42 @@ export { db };
 
 
     explication des pages routes:
+
+test des routes :
+
+toutes les routes utilisateurs marchent pour insciption et connexion ou je recuperer le token ,
+
+les routes missions marchent également en utilisant les profils associations uniquement je peux rajouter des missions avec POST dans insomnia et je les recuperes toutes en faisant GET :
+
+router.post("/mission", midlAuthenti, (req, res) => {
+if (req.user.role !== "association") {
+return res
+.status(403)
+.send("les missions ne peuvent etre créer que par les associations");
+}
+const { titre, description, date_mission } = req.body;
+
+    db.run(
+    	"INSERT INTO missions (titre,description,date_mission,association_id)VALUES(?,?,?,?)",
+    	[titre, description, date_mission, req.user.id],
+    	function (err) {
+    		if (err)
+    			return res
+    				.status(500)
+    				.send("probleme lors de la création de la mission");
+    		res.status(201).send({ message: "mission crée !!!" });
+    	}
+    );
+
+});
+
+router.get("/", midlAuthenti, (req, res) => {
+db.all(
+"SELECT \* FROM missions WHERE date_mission > CURRENT_DATE",
+[],
+(err, rows) => {
+if (err) return res.status(500).send("Erreur serveur.");
+res.status(200).send(rows);
+}
+);
+});

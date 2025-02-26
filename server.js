@@ -5,11 +5,13 @@ import authentiRoutes from "./routes/authentiRoutes.js";
 import utilisateurRoutes from "./routes/utilisateurRoutes.js";
 import missionRoutes from "./routes/missionRoutes.js";
 import candidatureRoutes from "./routes/candidatureRoutes.js";
+import cors from "cors";
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 const db = new sqlite3.Database("./plateforme_mission.db", (err) => {
 	if (err) {

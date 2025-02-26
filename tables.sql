@@ -56,6 +56,9 @@ VALUES
     (1, 1, 'En attente');
 
 
+DELETE FROM utilisateurs WHERE id = 5;
+
+
 SELECT * FROM utilisateurs;
 
 

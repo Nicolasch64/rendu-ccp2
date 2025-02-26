@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	const connexionForm = document.getElementById("connexion-form-element");
 	const messageDiv = document.getElementById("message");
 
-	// Inscription
 	inscriptionForm.addEventListener("submit", (e) => {
 		e.preventDefault();
 
@@ -32,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 	});
 
-	// Connexion
 	connexionForm.addEventListener("submit", (e) => {
 		e.preventDefault();
 
@@ -51,7 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
 				if (data.token) {
 					messageDiv.textContent = "Connexion réussie !";
 					messageDiv.style.color = "green";
-					console.log("Token: ", data.token); // Afficher le token pour l'utiliser dans les prochaines requêtes
+					console.log("Token: ", data.token);
+
+					localStorage.setItem("token", data.token);
 				} else {
 					messageDiv.textContent = "Erreur lors de la connexion.";
 					messageDiv.style.color = "red";
