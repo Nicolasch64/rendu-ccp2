@@ -11,7 +11,7 @@ const midlAuthenti = (req, res, next) => {
 	if (!token) return res.status(403).send("Il n y a pas de token");
 
 	try {
-		const decoded = jwt.decode(token, SECRET_KEY);
+		const decoded = jwt.decode(token.split(" ")[1], SECRET_KEY);
 		req.user = decoded;
 
 		next();

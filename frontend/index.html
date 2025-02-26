@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Plateforme de Mission de bénévolat</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+			<h1>Inscription et Connexion</h1>
+
+			<div class="form-container" id="inscription-form">
+				<h2>Inscription</h2>
+				<form id="inscription-form-element">
+					<input type="text" id="nom" placeholder="Nom" required />
+					<input type="email" id="email" placeholder="Email" required />
+					<select id="role" required>
+						<option value="bénévole">Bénévole</option>
+						<option value="association">Association</option>
+					</select>
+					<input
+						type="password"
+						id="motdepasse"
+						placeholder="Mot de passe"
+						required
+					/>
+					<button type="submit">S'inscrire</button>
+				</form>
+			</div>
+
+			<div class="form-container" id="connexion-form">
+				<h2>Connexion</h2>
+				<form id="connexion-form-element">
+					<input
+						type="email"
+						id="connexion-email"
+						placeholder="Email"
+						required
+					/>
+					<input
+						type="password"
+						id="connexion-motdepasse"
+						placeholder="Mot de passe"
+						required
+					/>
+					<button type="submit">Se connecter</button>
+				</form>
+			</div>
+
+			<div id="message"></div>
+		</div>
+
+		<script src="app.js"></script>
+	</body>
+</html>
