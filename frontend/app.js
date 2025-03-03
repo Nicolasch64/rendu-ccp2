@@ -43,15 +43,14 @@ document.addEventListener("DOMContentLoaded", () => {
 				"Content-Type": "application/json",
 			},
 			body: JSON.stringify({ email, motdepasse }),
+			credentials: "include",
+			//   ENVOI DU COOKIE AVEC LA REQUETE
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				if (data.token) {
+				if (data.message) {
 					messageDiv.textContent = "Connexion réussie !";
 					messageDiv.style.color = "green";
-					console.log("Token: ", data.token);
-
-					localStorage.setItem("token", data.token);
 				} else {
 					messageDiv.textContent = "Erreur lors de la connexion.";
 					messageDiv.style.color = "red";

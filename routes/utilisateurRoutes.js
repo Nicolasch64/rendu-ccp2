@@ -1,13 +1,15 @@
 import express from "express";
+
 import bcrypt from "bcryptjs";
 import jwt from "jwt-simple";
 import { db } from "../server.js";
 
 const router = express.Router();
+
 const SECRET_KEY = "non_non_vous_navez_pas_dit_le_mot_magique";
 
 const midlAuthenti = (req, res, next) => {
-	const token = req.headers["authorization"];
+	const token = req.cookies["token"];
 
 	if (!token) return res.status(403).send("Token manquant.");
 
@@ -76,8 +78,15 @@ router.post("/connexion", (req, res) => {
 		if (!motdepasseIsValid)
 			return res.status(401).send("Mot de passe incorrect.");
 
-		const payload = { id: row.id, role: row.role };
-		const token = jwt.encode(payload, SECRET_KEY);
+		const verif = { id: row.id, role: row.role };
+		const token = jwt.encode(verif, SECRET_KEY);
+
+		res.cookie("token", token, {
+			httpOnly: true,
+
+			maxAge: 7200000,
+			sameSite: "None",
+		});
 
 		res.status(200).send({ message: "Connexion réussie", token });
 	});

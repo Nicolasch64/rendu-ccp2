@@ -86,3 +86,5 @@ res.status(200).send(rows);
 }
 );
 });
+
+les routes des candidatures ont été les plus compliqués a faire pour moi car il y avait la création d'une route utilsant PUT pour accepter ou refuser les candidatures etn le fait de bien devoir changer le token d'authorization a chaque fois e ntre user et misssion.
