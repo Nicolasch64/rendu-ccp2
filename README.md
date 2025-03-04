@@ -88,3 +88,16 @@ res.status(200).send(rows);
 });
 
 les routes des candidatures ont été les plus compliqués a faire pour moi car il y avait la création d'une route utilsant PUT pour accepter ou refuser les candidatures etn le fait de bien devoir changer le token d'authorization a chaque fois e ntre user et misssion.
+
+on installe :npm install cookie-parser
+
+création d'un cookie pour sécuriser les données et éviter les attaques de xxs
+
+Technologies utilisées
+
+    Node.js : Serveur backend.
+    Express.js : Framework pour gérer les routes et les middlewares.
+    SQLite : Base de données légère pour stocker les utilisateurs, missions, et candidatures.
+    JWT : Authentification par token pour sécuriser l'accès aux routes.
+    bcryptjs : Hashage des mots de passe pour plus de sécurité.
+    CORS : Pour gérer les permissions d'accès entre les domaines.

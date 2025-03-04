@@ -1,9 +1,12 @@
 import express from "express";
+import dotenv from "dotenv";
 import { db } from "../server.js";
 import jwt from "jsonwebtoken";
 
 const router = express.Router();
-const SECRET_KEY = "non_non_vous_navez_pas_dit_le_mot_magique";
+dotenv.config();
+
+const SECRET_KEY = process.env.SECRET_KEY;
 
 const midlAuthenti = (req, res, next) => {
 	const token = req.headers["authorization"];
@@ -15,6 +18,7 @@ const midlAuthenti = (req, res, next) => {
 	try {
 		const decoded = jwt.verify(cleanToken, SECRET_KEY);
 		req.user = decoded;
+		console.log(decoded);
 		next();
 	} catch (err) {
 		console.log("Erreur lors de la vérification du token : ", err);
