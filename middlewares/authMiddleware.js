@@ -1,5 +1,5 @@
 import jwt from "jwt-simple";
-import { db } from "../server.js";
+
 const SECRET_KEY = process.env.SECRET_KEY;
 
 const midlAuthenti = (req, res, next) => {

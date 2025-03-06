@@ -48,8 +48,8 @@ VALUES
 
 INSERT INTO missions (titre, description, date_mission, association_id)
 VALUES 
-    ('Mission de nettoyage', 'Nettoyer les saloons', '2025-03-01', 4);
-
+    ('Mission de nettoyage', 'Nettoyer les saloons', '2025-03-01', 4),
+('Mission de desinfection', 'Nettoyer les bars', '2025-0-01',7);
 
 INSERT INTO candidatures (mission_id, utilisateur_id, status)
 VALUES 
@@ -71,3 +71,5 @@ SELECT * FROM candidatures;
 SELECT u.nom, u.email, c.status
 FROM candidatures c
 JOIN utilisateurs 
+
+

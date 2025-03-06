@@ -101,3 +101,6 @@ Technologies utilisées
     JWT : Authentification par token pour sécuriser l'accès aux routes.
     bcryptjs : Hashage des mots de passe pour plus de sécurité.
     CORS : Pour gérer les permissions d'accès entre les domaines.
+
+
+lien page github project:  
